@@ -1,0 +1,88 @@
+{% extends 'Unidades/index.html' %}
+
+
+{% block Titulo %}
+<h1 class="masthead-heading text-uppercase mb-0">Vulcanche</h1>
+{% endblock Titulo %}
+    
+
+
+{% block Contenido %}
+<form method="get" action="{% url 'buscarReservaCosta' %}">
+    <button type="submit">Buscar</button>
+</form>
+<table>
+
+    <tr>
+
+        <td width="200"><h2>Vulcanche</h2></td>
+
+        <td>
+
+            <a
+
+            href="{% url 'vulcancheCreate' %}"
+
+            class="btn btn-primary btn-sm"
+
+            ><i class="fa fa-plus fa-lg" title="Crear"> </i>
+
+            </a>
+
+        </td>        
+
+    </tr>
+
+</table>
+<table class="table table-striped">
+<thead>
+<tr>
+<th>id</th>
+<th>Nombre</th>
+<th>Apellido</th>
+<th>Cabaña</th>
+<th>Fecha de Estadia</th>
+<th>Acciones</th>
+</tr>
+</thead>
+<tbody>
+    {% for v in vulcanche_list %}
+    <tr>
+    <td>{{v.id}}</td>
+    <td>{{v.nombre}}</td>
+    <td>{{v.apellido}}</td>
+    <td>{{v.cabaña}}</td>
+    <td>{{v.fechaEstadia}}</td>
+    <td>
+
+        <a
+
+          href="{% url 'vulcancheUpdate' v.id %}"
+
+          class="btn btn-primary"
+
+          style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+
+          ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+
+        </a>
+
+        <a
+
+          href="{% url 'vulcancheDelete' v.id %}"
+
+          class="btn btn-danger"
+
+          style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+
+          ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+
+        </a>                
+
+    </td>
+    </tr>
+    {% endfor %}
+        
+</tbody>
+</table>
+{% endblock Contenido %}

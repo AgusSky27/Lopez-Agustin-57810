@@ -1,0 +1,18 @@
+{% extends 'Unidades/index.html' %}
+
+
+{% block Titulo %}
+<h1 class="masthead-heading text-uppercase mb-0">Formulario de Natur</h1>
+{% endblock Titulo %}
+    
+
+
+{% block Contenido %}
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Guardar">
+</form>
+{% endblock Contenido %}

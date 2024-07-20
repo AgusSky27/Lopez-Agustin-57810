@@ -1,0 +1,20 @@
+{% extends 'Unidades/index.html' %}
+
+
+{% block Titulo %}
+<h1 class="masthead-heading text-uppercase mb-0">Eliminar Registro</h1>
+{% endblock Titulo %}
+    
+
+
+{% block Contenido %}
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="text-center">
+        <h3>¿Esta seguro que desea eliminarlo?</h3> <p style="color:red">{{ object }}</p>
+    </div>
+    <div class="text-center">
+        <input type="submit" class="btn btn-primary btn-block" valor="Confirmar">
+    </div>
+</form>
+{% endblock Contenido %}

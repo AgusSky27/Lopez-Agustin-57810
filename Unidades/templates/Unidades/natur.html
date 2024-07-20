@@ -1,0 +1,89 @@
+{% extends 'Unidades/index.html' %}
+
+
+{% block Titulo %}
+<h1 class="masthead-heading text-uppercase mb-0">Natur Haus</h1>
+{% endblock Titulo %}
+    
+
+
+{% block Contenido %}
+<form method="get" action="{% url 'buscarReservaCosta' %}">
+    <button type="submit">Buscar</button>
+</form>
+<table>
+
+    <tr>
+
+        <td width="200"><h2>Natur Haus</h2></td>
+
+        <td>
+
+            <a
+
+            href="{% url 'naturForm' %}"
+
+            class="btn btn-primary btn-sm"
+
+            ><i class="fa fa-plus fa-lg" title="Crear"> </i>
+
+            </a>
+
+        </td>        
+
+    </tr>
+
+</table>
+
+<table class="table table-striped">
+<thead>
+<tr>
+<th>id</th>
+<th>Nombre</th>
+<th>Apellido</th>
+<th>Cabaña</th>
+<th>Fecha de Estadia</th>
+<th>Acciones</th>
+</tr>
+</thead>
+<tbody>
+    {% for n in natur %}
+    <tr>
+    <td>{{n.id}}</td>
+    <td>{{n.nombre}}</td>
+    <td>{{n.apellido}}</td>
+    <td>{{n.cabaña}}</td>
+    <td>{{n.fechaEstadia}}</td>
+    <td>
+
+        <a
+
+          href="{% url 'naturUpdate' n.id %}"
+
+          class="btn btn-primary"
+
+          style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+
+          ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+
+        </a>
+
+        <a
+
+          href="{% url 'naturDelete' n.id %}"
+
+          class="btn btn-danger"
+
+          style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+
+          ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+
+        </a>                
+
+    </td>
+    </tr>
+    {% endfor %}
+        
+</tbody>
+</table>
+{% endblock Contenido %}

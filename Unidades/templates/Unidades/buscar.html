@@ -1,0 +1,19 @@
+{% extends 'Unidades/index.html' %}
+
+
+{% block Titulo %}
+<h1 class="masthead-heading text-uppercase mb-0">Buscar Reservas en costa</h1>
+{% endblock Titulo %}
+    
+
+
+{% block Contenido %}
+<form action="{% url 'encontrar_reserva_costa' %}" method="get">
+    {% csrf_token %}
+    <table>
+        <p><input type="text" name="buscar" id="buscar"></p>
+    </table>
+    <input type="submit" value="Buscar">
+</form>
+{% endblock Contenido %}
+
